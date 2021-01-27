@@ -1,0 +1,27 @@
+{% extends 'microDonation/base.html' %}
+
+{% block title %}
+Search Charities
+{% endblock %}
+
+{% block content %}
+Search Charities
+<br>
+<form action="{% url 'search_charity' %}" method="post">
+	<table>
+		{% csrf_token %}
+		{{ form.as_table }}
+	</table>
+	<input type="submit" value="Search" class="btn btn-primary">
+</form>
+{% if results|length > 0 %}
+<table>
+	{% for result in results %}
+	<tr>
+		<td> <a href="{% url 'show_charity' result.pk %}"> {{ result.name }} </a> </td>
+	</tr>
+	{% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

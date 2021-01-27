@@ -1,0 +1,115 @@
+<!-- *  REFERENCES
+*  Title: Album
+*  Author: Bootstrap
+*  Date: 11/20/20
+*  Code version: <code version>
+*  URL: "https://getbootstrap.com/docs/4.0/examples/album/"
+*  Software License: MIT -->
+
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}
+Charities
+{% endblock %}
+
+{% block charities %}<li class="nav-item active">
+    <a class="nav-link" href="{% url 'charities' %}">Charities <span class="sr-only">(current)</span></a>
+</li>{% endblock %}
+
+{% block content%}
+
+<main role="main">
+
+
+    <div class="container" style="text-align: center;">
+        <h1>Share a Smile to Someone in Need &#128540;</h1>
+        <p>It's never been easier.</p>
+    </div>
+
+    <div class="album py-5 bg-light">
+        <div style="float:right;">
+            <a href="{% url 'create_charity' %}"><input type="button" class="btn btn-warning"
+                    value="Create A Charity"></input></a>
+        </div>
+        <h1 style="text-align: center; color:dodgerblue; margin-left: 160px;">Our Charities</h1>
+        <p style="text-align: center; color:dodgerblue">From broken families to a kid with a dream, discover stories
+            from all walks of the Earth to build a more beautiful feature.</p>
+
+
+        <div class="container">
+            <div class="row">
+                {% for charity in all_charities %}
+
+                <div class="col-md-3">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="{{charity.charity_image.url}}" alt="charity.photo" style="height: 290px">
+                        <div class="card-body">
+                            <h3 class="card-text charity-desc"><strong>{{charity.name}}</strong></h3>
+                            <p class="card-text charity-desc">{{ charity.description | truncatechars:40 }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                                        <!-- <button><a href="{% url 'show_charity' charity.pk %}">View</a></button> -->
+
+                                        <!-- <button type="button" data-toggle="modal" data-target="#deleteCharityModal"><a
+                                                href="">Delete</a></button> -->
+                                        <!-- Modal -->
+                                        <!-- <div class="modal fade" role="dialog" id="deleteCharityModal" tabindex="-1"
+                                            aria-labelledby="deleteCharityModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <form action="" method="post">
+                                                            <table>
+                                                                {% csrf_token %}
+                                                                {{ form.as_table }}
+                                                            </table>
+                                                            <input type="submit" value="Delete">
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <!-- <button><a href="{% url 'delete_charity' charity.pk %}">Delete</a></button>
+                                        <button><a href="{% url 'update_charity' charity.pk %}">Update</a></button> -->
+                                        <form action="{% url 'show_charity' charity.pk %}" class="product-buttons">
+                                            <input type="submit" class="btn btn-warning" value="View" style="color:white;">
+                                        </form>
+                                        <form action="{% url 'delete_charity' charity.pk %}" class="product-buttons">
+                                            <input type="submit" class="btn btn-warning" value="Delete" style="color:white;">
+                                        </form>
+                                        <form action="{% url 'update_charity' charity.pk %}" class="product-buttons">
+                                            <input type="submit" class="btn btn-warning" value="Update" style="color:white;">
+                                        </form>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}
+

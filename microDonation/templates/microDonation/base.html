@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="" name="description">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+	<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+	<link rel="icon" type="image/png"
+		href="https://www.freepngimg.com/download/iphone/66994-play-rewards-google-iphone-opinion-donate.png">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+	<!-- Favicon -->
+	<link href="img/core-img/favicon.ico" rel="icon">
+
+	<!--Awesome Icons-->
+	<link href="css\all.css" rel="stylesheet">
+
+	<!-- Stylesheet -->
+	<link href="css\styling.css" rel="stylesheet">
+	<link href="css\animate-wow.css" rel="stylesheet">
+	<style>
+		.product-buttons {
+			float: left;
+			margin: 3px;
+		}
+
+		.jumbotron {
+			align-items: center;
+			display: flex;
+			background-image: url('https://static.pexels.com/photos/392018/pexels-photo-392018.jpeg');
+			background-size: cover;
+			height: 450px;
+			color: white;
+			height: 50vh;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.columns {
+			float: left;
+			width: 33.3%;
+			padding: 8px;
+		}
+
+		.price {
+			list-style-type: none;
+			border: 1px solid #eee;
+			margin: 0;
+			padding: 0;
+			-webkit-transition: 0.3s;
+			transition: 0.3s;
+		}
+
+		.price:hover {
+			box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2)
+		}
+
+		.price .header {
+			background-color: #2D2727;
+			color: white;
+			font-size: 25px;
+		}
+
+		.price li {
+			border-bottom: 1px solid #eee;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.price .grey {
+			background-color: #eee;
+			font-size: 20px;
+		}
+
+		.button {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 10px 25px;
+			text-align: center;
+			text-decoration: none;
+			font-size: 18px;
+		}
+
+		@media only screen and (max-width: 600px) {
+			.columns {
+				width: 100%;
+			}
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		.shopping-cart {
+			width: 750px;
+			height: 423px;
+			margin: 80px auto;
+			background: #FFFFFF;
+			box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
+			border-radius: 6px;
+
+			display: flex;
+			flex-direction: column;
+		}
+
+		.title {
+			height: 60px;
+			border-bottom: 1px solid #E1E8EE;
+			padding: 20px 30px;
+			color: #5E6977;
+			font-size: 18px;
+			font-weight: 400;
+		}
+
+		.item {
+			padding: 20px 30px;
+			height: 120px;
+			display: flex;
+		}
+
+		.item:nth-child(3) {
+			border-top: 1px solid #E1E8EE;
+			border-bottom: 1px solid #E1E8EE;
+		}
+
+		.buttons {
+			position: relative;
+			padding-top: 30px;
+			margin-right: 60px;
+		}
+
+		.delete-btn,
+		.like-btn {
+			display: inline-block;
+			Cursor: pointer;
+		}
+
+		.delete-btn {
+			width: 18px;
+			height: 17px;
+			background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
+		}
+
+		.like-btn {
+			position: absolute;
+			top: 9px;
+			left: 15px;
+			background: url('twitter-heart.png');
+			width: 60px;
+			height: 60px;
+			background-size: 2900%;
+			background-repeat: no-repeat;
+		}
+
+		.is-active {
+			animation-name: animate;
+			animation-duration: .8s;
+			animation-iteration-count: 1;
+			animation-timing-function: steps(28);
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes animate {
+			0% {
+				background-position: left;
+			}
+
+			50% {
+				background-position: right;
+			}
+
+			100% {
+				background-position: right;
+			}
+		}
+
+		.image {
+			margin-right: 50px;
+		}
+
+		.description {
+			padding-top: 10px;
+			margin-right: 60px;
+			width: 115px;
+		}
+
+		.description span {
+			display: block;
+			font-size: 14px;
+			color: #43484D;
+			font-weight: 400;
+		}
+
+		.description span:first-child {
+			margin-bottom: 5px;
+		}
+
+		.description span:last-child {
+			font-weight: 300;
+			margin-top: 8px;
+			color: #86939E;
+		}
+
+		.quantity {
+			padding-top: 20px;
+			margin-right: 60px;
+		}
+
+		.quantity input {
+			-webkit-appearance: none;
+			border: none;
+			text-align: center;
+			width: 32px;
+			font-size: 16px;
+			color: #43484D;
+			font-weight: 300;
+		}
+
+		button[class*=btn] {
+			width: 30px;
+			height: 30px;
+			background-color: #E1E8EE;
+			border-radius: 6px;
+			border: none;
+			cursor: pointer;
+		}
+
+		.minus-btn img {
+			margin-bottom: 3px;
+		}
+
+		.plus-btn img {
+			margin-top: 2px;
+		}
+
+		button:focus,
+		input:focus {
+			outline: 0;
+		}
+
+		.total-price {
+			width: 83px;
+			padding-top: 27px;
+			text-align: center;
+			font-size: 16px;
+			color: #43484D;
+			font-weight: 300;
+		}
+
+		@media (max-width: 800px) {
+			.shopping-cart {
+				width: 100%;
+				height: auto;
+				overflow: hidden;
+			}
+
+			.item {
+				height: auto;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.image img {
+				width: 50%;
+			}
+
+			.image,
+			.quantity,
+			.description {
+				width: 100%;
+				text-align: center;
+				margin: 6px 0;
+			}
+
+			.buttons {
+				margin-right: 20px;
+			}
+		}
+
+		/* old */
+		.charity-desc {
+			color: dodgerblue;
+			font-size: small;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		.search-item {
+			position: absolute;
+			right: 10px;
+		}
+
+		.index-tro {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			border: 1px solid black;
+		}
+
+		.navbar {
+			width: 100%;
+			top: 0;
+			position: sticky;
+			left: 0;
+			height: 50px;
+			background-color: #f3f3f3;
+			z-index: 1;
+		}
+
+		table.center {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.transparent {
+			zoom: 1;
+			filter: alpha(opacity=50);
+			opacity: 0.5;
+		}
+
+		.log {
+			background-color: transparent;
+		}
+
+		.icon {
+			padding-left: 10px;
+		}
+
+		body {
+			background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+			background-size: 400% 400%;
+			animation: gradient 15s ease infinite;
+		}
+
+		.center {
+			margin: auto;
+			width: 50%;
+			border: 3px;
+			padding: 100px;
+			text-align: center;
+		}
+
+		.info-box {
+			background-color: #f0ad4e;
+			border-radius: 15px;
+			color: dodgerblue;
+			padding: 10px;
+			border-color: black;
+			text-align: center;
+			outline-color: #43484D;
+			border: #43484D;
+			border-width: 10px;
+			margin: 0px;
+		}
+
+		.intro {
+			color: white;
+			text-align: center;
+			padding-top: 10%;
+		}
+
+		.cart-title {
+			color: white;
+			padding-top: 10%;
+		}
+
+		.container {
+			padding: 10%;
+			color: white;
+			/* width: 500px; */
+		}
+
+		.tag {
+			float: left;
+			position: absolute;
+			left: 450px;
+			top: 200px;
+			z-index: 1000;
+			padding: 5px;
+			color: #FFFFFF;
+			outline: black;
+		}
+
+		.center {
+			margin: auto;
+			width: 50%;
+			border: 3px;
+			padding: 100px;
+			text-align: center;
+		}
+
+		.tag2 {
+			float: left;
+			position: absolute;
+			left: 10px;
+			top: 1220px;
+			z-index: 1000;
+			padding: 5px;
+			color: whitesmoke;
+			font-weight: bold;
+			outline: black;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+		}
+
+		@keyframes gradient {
+			0% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		#show_bg_2 {
+			background-image:
+				linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
+				url('images/background.jpg');
+			width: 100%;
+			height: 550px;
+			background-size: cover;
+			color: white;
+		}
+	</style>
+	<title>{% block title %}{% endblock %}</title>
+	{% block extra_head_content %}{% endblock %}
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<!-- not sure why MicroDonate link isn't working with '"{% url 'index' %}"', so I made it an absolete link (other tags messed up size of bar) -->
+		<a class="navbar-brand" href="{% url 'index' %}">MicroDonate</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav" style="background-color:white;">
+			<ul class="navbar-nav" style="padding-left: 20px;">
+				<!-- {% block index %}<li class="nav-item">
+					<a class="nav-link" href="{% url 'index' %}">Home</a>
+				</li>{% endblock %} -->
+				{% block about %}<li class="nav-item">
+					<a class="nav-link" href="{% url 'about' %}">About</a>
+				</li>{% endblock %}
+				{% block charities %}<li class="nav-item">
+					<a class="nav-link" href="{% url 'charities' %}">Charities</a>
+					{% endblock %}</li>
+				{% block cart %}<li class="nav-item">
+					<a class="nav-link" href="{% url 'show_cart' %}">Cart</a>
+				</li>{% endblock %}
+				{% block login %}<li class="nav-item">
+					<a class="nav-link" href="{% url 'login' %}">Account</a>
+				</li>{% endblock %}
+				<div class='search-item' style="padding-top: 10px;">
+					<form action="{% url 'search_charity' %}" , method="POST">
+						{% csrf_token %}
+						<input type="text" placeholder="Search and Explore!" , name="search_val">
+						<button type="submit">&#x1F50D;</button>
+					</form>
+				</div>
+			</ul>
+
+
+
+		</div>
+	</nav>
+
+	<!--NavBar END-->
+
+	{% block content %}{% endblock %}
+
+	<!-- Footer -->
+	<!-- <div class="wrapper">
+		<footer class="foot">
+
+			<div class="row">
+
+				<h5 class="text-uppercase"></h5>
+				<p><strong>Crafted by 2-26 - Copyright by University of Virginia 2020.</strong></p>
+
+			</div>
+		</footer>
+		<div class="push"></div>
+	</div>
+	<div class="footer"></div> -->
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+</html>

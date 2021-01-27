@@ -1,0 +1,15 @@
+language: python
+python:
+- '3.8'
+install:
+- pip install -r requirements-travis.txt
+- pip install django-paypal
+script:
+- python manage.py test
+deploy:
+  provider: heroku
+  api_key: d34a34f2-4b3b-417b-a80e-f40818f0b892
+  app: micro-donate-2-26
+  on:
+    repo: uva-cs3240-f20/project-2-26
+

@@ -1,0 +1,50 @@
+{% extends 'microDonation/base.html' %}
+{% load static %}
+
+{% block title %}
+About
+{% endblock %}
+
+
+{% block about %}<li class="nav-item active">
+	<a class="nav-link" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+</li>{% endblock %}
+
+{% block content %}
+<div class="about">
+    <table class="center" style="width: 100%; color: white; text-align: left;">
+        <tr>
+            <td>
+                <img id='show_bg_2' src="{% static 'images/sadFamilyGradient.gif' %}" alt="Sad Family">
+            </td>
+            <div class="intro tag">
+                <h1 style="word-spacing: 5px;">About Micro Donate</h1>
+                <p style="word-spacing: 3px;">We make donating the hard way, the easy way</p>
+            </div>
+        </tr>
+        <tr style="text-align: center; color: white">
+            <td>
+                <div class="intro container" style="width: 1200px; font-size: larger; word-spacing: 3px;">
+                    <p>
+                        We started Micro Donate in 2020, in conjunction with Paul McBurney and Mark Sherriff, at the
+                        University of Virginia. Our experience showed us a large gap in the online donation software
+                        market, and a lack of an all-comphrensive resource to encourage donating and ensure a smooth
+                        process. With simplicity built in mind, our services enable you to discover deserving causes
+                        across the globe, and allow you to avoid the stress of deciding on a single instituition
+                        with
+                        our slider method of donating.
+                    </p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img id='show_bg_2' src="{% static 'images/helpingHands.jpg' %}" alt="Helping Hands">
+            </td>
+            <div class="intro tag2">
+                <h1>We're here to help with the little things, so leave your money with someone you can trust</h1>
+            </div>
+        </tr>
+    </table>
+</div>
+{%endblock%}

@@ -1,0 +1,192 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% block title %}
+MicroDonate
+{% endblock %}
+
+{% block index %}<li class="nav-item active">
+    <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+</li>{% endblock %}
+
+{%block content%}
+<section class="jumbotron">
+    <div class="container" style="text-align:center">
+        <div class="row">
+            <h1>Change the Way You Donate</h1>
+            <p>The online tools you need to improve your donating experience, simplify processes and
+                spread joy. <strong style="color:goldenrod; font-size:larger; outline-color: black; outline-width: thick;">We're here for you!</strong></p>
+            <form action="{% url 'login' %}" style="text-align: center;">
+                <input type="submit" class="btn btn-warning" value="GET STARTED NOW" style="color:white;">
+            </form>
+        </div>
+    </div>
+</section>
+
+<div class=intro></div>
+<div class="columns">
+    <ul class="price">
+        <li class="header">Grow One Micro Step At a Time</li>
+        <li class="grey">Donate easily with MicroDonate. Create a free account.
+            We help spread the wealth easily.</li>
+        <li class="header"></li>
+    </ul>
+</div>
+<div class="columns">
+    <ul class="price">
+        <li class="header">Create and Add</li>
+        <li class="grey">Grow easily with chamb. Create a free account.
+            We help expanding your charity easily.</li>
+        <li class="header"></li>
+    </ul>
+</div>
+
+<div class="columns">
+    <ul class="price">
+        <li class="header">Get Inspired</li>
+        <li class="grey">On MicroDonate, you can find needs of all sorts to help. With our technology, we are able to
+            reach institutions of all types.</li>
+        <li class="header"></li>
+    </ul>
+</div>
+
+<div class=intro></div>
+
+<!-- <div class="cat-main-box">
+    <div class="container">
+        <div class="row panel-row">
+            <div class="col-md-4 info-box" data-wow-delay="0.0s">
+                <div class="panel panel-default">
+                    <div class="panel-body index-tro">
+                        <img src="images/xpann-icon.jpg" class="icon-small" alt="">
+                        <h4><strong>Grow a Micro Step at a Time</strong></h4>
+                        <p>Donate easily with MicroDonate. Create a free account.
+                            We help spread the wealth easily.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 info-box" data-wow-delay="0.2s">
+                <div class="panel panel-default">
+                    <div class="panel-body index-tro" style="padding-bottom: 30px;">
+                        <img src="images/create-icon.jpg" class="icon-small" alt="">
+                        <h4><strong>Create and Add</strong></h4>
+                        <p>Grow easily with chamb. Create a free account.
+                            We help expanding your charity easily.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 hidden-sm info-box" data-wow-delay="0.4s">
+                <div class="panel panel-default">
+                    <div class="panel-body index-tro" style="padding-bottom: 52px;">
+                        <img src="images/get-icon.jpg" class="icon-small" alt="">
+                        <h4><strong>Get inspired</strong></h4>
+                        <p>On MicroDonate, you can find needs of all sorts to help.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="products_exciting_box">
+    <div class="container">
+        <div class="row" style="width: 100%; ">
+            <div class="col-lg-5">
+                <div class="exciting_box f_pd">
+                    <img src="images/exciting_img-01.jpg" class="icon-small" alt="" />
+                    <h4>Explore <strong>exciting</strong> and exotic products
+                        tailored to you.
+                    </h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris..
+                    </p>
+                </div>
+            </div>
+            <div style="border-left:thin solid #ffffff"></div>
+            <!-- ASK TA HOW TO MOVE DIV NEXT TO EACH OTHER -->
+
+<!-- <div class="col-lg-5">
+                <div class="exciting_box l_pd">
+                    <img src="images/exciting_img-02.jpg" class="icon-small" alt="" />
+                    <h4><strong>List your products on</strong> chamb and grow connections.</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris..
+                    </p>
+                </div>
+            </div>
+            <div style="border-left:thin solid #ffffff"></div>
+            <div class="col-lg-5">
+                <div class="exciting_box l_pd">
+                    <img src="images/helpingHands.jpg" class="icon-small" alt="" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="start-free-box" style="float: left;">
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <div class="main-start-box">
+                    <div class="free-box-a clearfix">
+                        <div class="col-lg-4 col-lg-6">
+                            <div class="left-a-f">
+                                <h3>A platform built for scale & expansion. Start for free.</h3>
+                                <p>MicroDonate helps to bring meaningful causes to life. Whether you are a charity or a
+                                    donor, the first step to making a difference starts
+                                </p>
+
+                            </div>
+
+
+                        </div>
+                        <div style="border-left:thin solid #ffffff" class="right-a-f"></div>
+                        <div class="col-lg-4 col-lg-6" style="float: right;">
+                            <img src="images/cooming-pc.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class=intro></div>
+<h1 class=intro>Grow Your Impact Online</h1>
+<div class="products_exciting_box">
+    <div class="container">
+        <div class="row" style="width: 100%; padding-left: 200px; ">
+            <div class="col-lg-5">
+                <div class="exciting_box f_pd">
+                    <h4>Tips for Charitable Donations
+                    </h4>
+                    <ol>
+                        <li>Budget for donations</li>
+                        <li>Be consistent</li>
+                        <li>Go monthly</li>
+                        <li>Give in other ways</li>
+                        <li>Review your current giving</li>
+                        <li>Budget for donations</li>
+                        <li>Learn how your money is spent</li>
+                        <li>Claim your tax credits</li>
+                        <li>Pay forward a windfall</li>
+                        <li>Plan ahead through your will</li>
+                    </ol>
+                </div>
+            </div>
+            <div style="border-left:thin solid #ffffff"></div>
+            <div class="col-lg-5">
+                <img style="height:250px; width:400px; padding-left: 30px;"
+                    src="https://blog.vancity.com/wp-content/uploads/2016/12/GiveHands-iStock-Blog-1280x620-1280x620.jpg">
+            </div>
+            <!-- ASK TA HOW TO MOVE DIV NEXT TO EACH OTHER-->
+
+
+            {%endblock%}

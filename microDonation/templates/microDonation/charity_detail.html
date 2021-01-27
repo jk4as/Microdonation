@@ -1,0 +1,105 @@
+<!-- *  REFERENCES
+*  Title: Album
+*  Author: Bootstrap
+*  Date: 11/20/20
+*  Code version: <code version>
+*  URL: "https://getbootstrap.com/docs/4.0/examples/album/"
+*  Software License: MIT -->
+
+{% extends 'microDonation/base.html' %}
+
+{% block title %}
+{{ charity.name }}
+{% endblock %}
+
+{% block charities %}<li class="nav-item active">
+	<a class="nav-link" href="{% url 'charities' %}">Charities <span class="sr-only">(current)</span></a>
+</li>{% endblock %}
+
+{% block content %}
+
+
+<div class="intro">
+	<h1>{{ charity.name }}</h1>
+</div>
+
+
+<!-- old details page -->
+<!-- <br>
+<table>
+	{% for cause in causes %}
+	<tr>
+		<a href="{% url 'show_cause' cause.pk %}"> {{ cause.name }} </a>
+	</tr>
+	{% endfor %}
+</table> -->
+
+<!-- revamp details page -->
+
+<div class="album py-5 bg-light">
+	<div style="float:right;">
+		<a href="{% url 'create_cause' charity.pk %}"><input type="button" class="btn btn-warning"
+				value="Create A Cause"></input></a>
+	</div>
+	<h4 style="text-align: center; color:dodgerblue; padding-left: 130px;">Check out everything {{charity.name}} has to offer today!</h4>
+	<p style="text-align: center; color:dodgerblue"> {{charity.description}} </p>
+	<div class="container">
+		<div class="row">
+			{% for cause in causes %}
+			<div class="col-md-3">
+				<div class="card mb-4 box-shadow">
+					<img class="card-img-top" src="{{cause.cause_image.url}}" alt="cause.photo" style="height: 290px">
+					<div class="card-body">
+						<h3 class="card-text charity-desc"><strong>{{cause.name}}</strong></h3>
+						<p class="card-text charity-desc">{{ cause.description | truncatechars:40  }}</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group btn-group-sm" role="group" aria-label="...">
+								<form action="{% url 'show_cause' cause.id %}" class="product-buttons">
+									{% csrf_token %}
+									{{ form }}
+									<input type="submit" class="btn btn-warning" value="Cart" style="color:white;">
+								</form>
+								<form action="{% url 'delete_cause' cause.pk %}"class="product-buttons" >
+									<input type="submit" class="btn btn-warning" value="Delete" style="color:white;" >
+								</form>
+								<form action="{% url 'update_cause' cause.pk %}" class="product-buttons">
+									<input type="submit" class="btn btn-warning" value="Update" style="color:white;">
+								</form>
+								<!-- <button><a href="{% url 'delete_cause' cause.pk %}">Delete</a></button>
+								<button><a href="{% url 'update_cause' cause.pk %}">Update</a></button> -->
+							</div>
+						</div>
+<!-- 
+						<form action="{% url 'login' %}" style="text-align: center;">
+							<input type="submit" class="btn btn-warning" value="GET STARTED NOW" style="color:dodgerblue;">
+						</form> -->
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="col-md-4 order-md-2 mb-4">
+			<div class="intro" style=color:dodgerblue>{{charity.name}} Transaction History</div>
+			<ul class="list-group mb-3 sticky-top">
+				{% for order, value in orders.items %}
+				<li class="list-group-item d-flex justify-content-between lh-condensed text-muted">
+					<div>
+						<h6 class="my-0">Order {{order.id}}</h6>
+					</div>
+					<span class="text-muted">${{value}}</span>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+
+
+
+
+
+</div>
+
+
+{% endblock %}
+

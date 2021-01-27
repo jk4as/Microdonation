@@ -1,0 +1,26 @@
+{% extends 'microDonation/base.html' %}
+
+{% block title %}
+{{ cause.name }}
+{% endblock %}
+
+{% block charities %}<li class="nav-item active">
+	<a class="nav-link" href="{% url 'charities' %}">Charities <span class="sr-only">(current)</span></a>
+</li>{% endblock %}
+
+{% block content %}
+
+<div class="intro">
+	<h1>{{ cause.name }}</h1>
+</div>
+
+<div class="container">
+	<p>{{cause.description}}</p>
+</div>
+
+<form action="{% url 'show_cause' cause.id %}" method="post">
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" value="Add to Cart" class="btn btn-primary">
+</form>
+{% endblock %}

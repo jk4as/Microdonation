@@ -1,0 +1,88 @@
+<!-- *  REFERENCES
+*  Title: E-Commerce Shopping Cart
+*  Author: MDBootstrap
+*  Date: 11/20/20
+*  Code version: <code version>
+*  URL: "https://mdbootstrap.com/docs/jquery/ecommerce/design-blocks/shopping-cart/"
+*  Software License: MIT -->
+
+{% extends 'microDonation/base.html' %}
+
+{% block title %}
+Cart
+{% endblock %}
+
+{% block cart %}<li class="nav-item active">
+	<a class="nav-link" href="{% url 'show_cart' %}">Cart <span class="sr-only">(current)</span></a>
+</li>{% endblock %}
+
+{% block content %}
+
+<!-- <div class="intro">
+	<h1>Cart</h1>
+</div>
+<hr>
+
+<br>
+{% if cart_items|length > 0 %}
+<table>
+	{% for item in cart_items %}
+	<tr>
+		<td> {{ item.cause }} </td>
+		<td> {{ item.value }} </td>
+	</tr>
+	{% endfor %}
+	<tr>
+		<td> Subtotal </td>
+		<td> {{ cart_subtotal }} </td>
+	</tr>
+</table>
+{% endif %}
+
+
+<form action="{% url 'checkout' %}">
+	<input type="submit" value="Checkout" class="btn btn-primary">
+</form> -->
+
+<div class=".cart-title" style="color: white;">
+	<h1>Shopping Cart</h1>
+</div>
+
+<br>
+<hr>
+{% if cart_items|length > 0 %}
+
+{% for item in cart_items %}
+<div class=".shopping-cart">
+
+	<!-- Product -->
+	<div class="item">
+		<div class="buttons">
+			<span class="delete-btn"></span>
+		</div>
+		<div class="image">  
+			<img class="" width=100 height=100 src={{item.cause.cause_image.url}} alt="charity.photo">
+			<!-- <img src="https://i.pinimg.com/originals/fa/98/67/fa9867a39c2ec093bad63e91fed2bacb.jpg"> -->
+			<!-- {{item.cause.cause_image}} -->
+		</div>
+		<div class="description">
+			<span style="color: white;">{{item.cause}}</span>
+		</div>
+		<div class="total-price" style="color: white;">${{item.value}}</div>
+	</div>
+</div>
+<hr>
+{% endfor %}
+{% endif %}
+<div class=".cart-title" style="color: white;">
+	<h3> Subtotal ({{cart_items|length}} items): ${{ cart_subtotal }} </h3>
+</div>
+<hr>
+
+{% if cart_items|length > 0 %}
+<form action="{% url 'checkout' %}">
+	<input type="submit" value="Checkout" class="btn btn-primary btn-block">
+</form> 
+{% endif %}
+{% endblock %}
+

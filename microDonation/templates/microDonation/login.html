@@ -1,0 +1,37 @@
+{% extends './base.html' %}
+{% load static %}
+
+{% load socialaccount %}
+
+
+{% block title %}
+Account
+{% endblock %}
+
+{% block login %}<li class="nav-item active">
+	
+	<a class="nav-link" href="{% url 'login' %}">Account<span class="sr-only">(current)</span></a>
+</li>{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h1 class="intro">Welcome{% if user.first_name or user.last_name %},
+	{% endif %}{{ user.first_name }}{% if user.first_name and user.last_name %} {% endif %}{{ user.last_name }}! Great
+	to see ya:)</h1>
+<form action="{% url 'logout' %}" style="text-align: center;">
+	<input type="submit" class="btn btn-warning" value="Logout" style="color:white;">
+</form>
+{% else %}
+<h1 class="intro">Please Sign In</h1>
+<form action="{% provider_login_url 'google' %}" style="text-align: center;">
+	<input type="submit" class="btn btn-warning" value="Login with Google" style="color:white;">
+</form>
+{% endif %}
+<!-- <table>
+	{% for charity in all_charities %}
+	<tr> <a href="{% url 'show_charity' charity.pk %}">{{ charity.name }} </a> </tr>
+	{% endfor %}
+</table> -->
+
+{%endblock%}
