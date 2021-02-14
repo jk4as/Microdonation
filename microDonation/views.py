@@ -24,6 +24,7 @@ from django.db.models import Count
 from django.template import RequestContext
 
 # Create your views here.
+# Test
 
 def index(request):
     return render(request, 'microDonation/index.html', {})
